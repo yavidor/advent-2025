@@ -33,8 +33,9 @@ int getFileSize(const char *fileName) {
     return count;
 }
 
-int nextNewline(const char *str, int pos) {
+int nextNewline(const char *str, int pos, int end) {
     while (*(str + pos) != '\n') {
+        if (pos > end) return end;
         pos++;
     }
     return pos;
