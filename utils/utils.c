@@ -10,7 +10,6 @@
 char *readLines(const int day, const bool isRealInput) {
     char fileName[20];
     sprintf(fileName, "../day%d/%s.txt", day, isRealInput ? "input" : "example");
-    printf("%s\n", fileName);
     FILE *file = fopen(fileName, "r");
     if (file == NULL) {
         fprintf(stderr, "file %s is null", fileName);

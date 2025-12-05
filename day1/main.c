@@ -45,9 +45,9 @@ int part1(const char *input) {
         value += positiveDirection ? rotation : -rotation;
         value = value >= 0 ? value : value + 100;
         value %= 100;
-        if (value == 0)
+        if (value == 0) {
             zeroCounter++;
-        printf("%d\n", value);
+        }
         pos = nextNewline(input, pos, inputLength) + 1;
     }
     return zeroCounter;
