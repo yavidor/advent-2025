@@ -6,10 +6,14 @@
 #include "../utils/utils.h"
 
 
+int part1(const char *input) {
+    int pos = 1;
+    int num = readNumber(input, pos, ',');
+    printf("%d\n", num);
+    return 1;
+}
 
-int part1(const char *input) {}
-
-int part2(const char *input) {}
+int part2(const char *input) { return 2; }
 
 int main(void) {
     const char *input = readLines(2, false);

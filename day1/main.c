@@ -29,7 +29,7 @@ int part1(const char *input) {
         if (value == 0) {
             zeroCounter++;
         }
-        pos = nextCharOcc(input, '\n', pos, inputLength) + 1;
+        pos = nextCharOcc(input, '\n', pos) + 1;
     }
     return zeroCounter;
 }
@@ -58,7 +58,7 @@ int part2(const char *input) {
             }
             stepsCounter++;
         }
-        pos = nextCharOcc(input, '\n', pos, inputLength) + 1;
+        pos = nextCharOcc(input, '\n', pos) + 1;
     }
     return zeroCounter;
 }

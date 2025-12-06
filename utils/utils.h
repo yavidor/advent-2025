@@ -14,8 +14,8 @@ char *readLines(int day, bool isRealInput);
 //Get the file size in characters
 int getFileSize(const char *fileName);
 
-//Get the position of the next '\n', if there are not newlines left, return the end position of the string.
-int nextCharOcc(const char* str, char target, int pos, int end);
+//Get the position of the next occurrence of 'target' in the line, if there aren't any left, return the position of the next newline, if there aren't any left, end position of the string.
+int nextCharOcc(const char* str, char target, int pos);
 
 //Get the length of a string, like strlen but mine (:
 int lenstr(const char* str);

@@ -32,10 +32,10 @@ int getFileSize(const char *fileName) {
     return count;
 }
 
-int nextCharOcc(const char *str, const char target, int pos, const int end) {
-    while (*(str + pos) != target) {
-        if (pos > end)
-            return end;
+int nextCharOcc(const char *str, const char target, int pos) {
+    while (*(str + pos) != target && *(str + pos) != '\n') {
+        if (*(str+pos) == '\0')
+            return pos;
         pos++;
     }
     return pos;
@@ -49,7 +49,7 @@ int lenstr(const char *str) {
     return pos;
 }
 int readNumber(const char *str, int pos, const char delimiter) {
-    const int newLinePos = nextCharOcc(str, delimiter, pos, lenstr(str)) + 1;
+    const int newLinePos = nextCharOcc(str, delimiter, pos) + 1;
     char *numInput = malloc(sizeof(char) * 1 + (newLinePos - pos));
     int innerPosition = 0;
     pos++;
