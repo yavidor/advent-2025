@@ -52,8 +52,6 @@ int readNumber(const char *str, int pos, const char delimiter) {
     const int newLinePos = nextCharOcc(str, delimiter, pos) + 1;
     char *numInput = malloc(sizeof(char) * 1 + (newLinePos - pos));
     int innerPosition = 0;
-    pos++;
-
     while (pos < newLinePos - 1) {
         *(numInput + innerPosition) = *(str + pos);
         innerPosition++;
