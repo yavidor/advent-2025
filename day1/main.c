@@ -22,7 +22,7 @@ int part1(const char *input) {
     // Loop until the end of the file
     while (pos < inputLength - 1) {
         const bool positiveDirection = *(input + pos) == RIGHT;
-        const int rotation = readNumber(input, pos+1, '\n');
+        const int rotation = readNumber(input, '\n', pos + 1);
         value += positiveDirection ? rotation : -rotation;
         value = value >= 0 ? value : value + 100;
         value %= 100;
@@ -47,7 +47,7 @@ int part2(const char *input) {
     // Loop until the end of the file
     while (pos < inputLength - 1) {
         const bool positiveDirection = *(input + pos) == RIGHT;
-        const int rotation = readNumber(input, pos+1, '\n');
+        const int rotation = readNumber(input, '\n', pos + 1);
         int stepsCounter = 0;
         while (stepsCounter < rotation) {
             value += positiveDirection ? 1 : -1;

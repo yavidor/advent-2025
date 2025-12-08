@@ -8,13 +8,22 @@
 #include "../utils/utils.h"
 
 int part1(const char *input) {
-    const int pos = 2;
-    const int num = readNumber(input, pos, ',');
-    char shtutstring[20];
-    itoa(num, shtutstring, 10);
-    printf("%s\n",shtutstring);
-    printf("%d\n", num);
-    return 1;
+    int pos = 0;
+    const int stringLength = lenstr(input);
+    while (pos <= stringLength) {
+        int num = readNumber(input, '-',pos);
+        pos = nextCharOcc(input,'-',pos);
+        char shtutstring[20];
+        itoa(num, shtutstring, 10);
+        printf("%s\n", shtutstring);
+        printf("%d\n", num);
+        num = nextCharOcc(input,',',pos);
+        pos = nextCharOcc(input,',',pos);
+        itoa(num, shtutstring, 10);
+        printf("%s\n", shtutstring);
+        printf("%d\n", num);
+    }
+    return pos;
 }
 
 int part2(const char *input) { return 2; }
