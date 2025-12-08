@@ -33,7 +33,6 @@ int getFileSize(const char *fileName) {
 }
 
 int nextCharOcc(const char *str, const char target, int startingPost) {
-    printf("+++%d\n",startingPost);
     while (*(str + startingPost) != target && *(str + startingPost) != '\n') {
         if (*(str+startingPost) == '\0')
             return startingPost;
@@ -49,7 +48,7 @@ int lenstr(const char *str) {
     }
     return pos;
 }
-int readNumber(const char *str,  const char delimiter, int startingPos) {
+int readInt(const char *str,  const char delimiter, int startingPos) {
     const int newLinePos = nextCharOcc(str, delimiter, startingPos) + 1;
     char *numInput = malloc(sizeof(char) * 1 + (newLinePos - startingPos));
     int innerPosition = 0;
@@ -61,6 +60,21 @@ int readNumber(const char *str,  const char delimiter, int startingPos) {
     *(numInput + innerPosition) = '\0';
     char *endPointer = (numInput + innerPosition);
     const long output = strtol(numInput, &endPointer, 10);
+    free(numInput);
+    return output;
+}
+long long readLongLong(const char *str,  const char delimiter, int startingPos) {
+    const long long newLinePos = nextCharOcc(str, delimiter, startingPos) + 1;
+    char *numInput = malloc(sizeof(char) * 1 + (newLinePos - startingPos));
+    int innerPosition = 0;
+    while (startingPos < newLinePos - 1) {
+        *(numInput + innerPosition) = *(str + startingPos);
+        innerPosition++;
+        startingPos++;
+    }
+    *(numInput + innerPosition) = '\0';
+    char *endPointer = (numInput + innerPosition);
+    const long long output = strtoll(numInput, &endPointer, 10);
     free(numInput);
     return output;
 }

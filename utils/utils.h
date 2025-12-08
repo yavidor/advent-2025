@@ -21,6 +21,8 @@ int nextCharOcc(const char* str, char target, int startingPost);
 int lenstr(const char* str);
 
 // Read the number that appears at the end of each line
-int readNumber(const char *str, char delimiter, int startingPos);
+int readInt(const char *str, char delimiter, int startingPos);
 
+// Read the number that appears at the end of each line as long long
+long long readLongLong(const char *str,  char delimiter, int startingPos);
 #endif // ADVENT_2025_UTILS_H
